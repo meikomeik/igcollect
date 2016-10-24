@@ -28,6 +28,8 @@ def main(prefix, filename):
     revision = line.strip().rsplit(' ', 1)[-1]
     if revision.startswith('v'):
         revision = revision[1:]
+    if revision.startswith('branches/v'):
+        revision = revision[10:]
     revision = revision.replace('.', '_')
     print('{}.{} 1 {}'.format(prefix, revision, int(time())))
 
